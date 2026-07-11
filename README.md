@@ -142,3 +142,220 @@ export default function App() {
 ✅ Funciona no Android e iOS.
 
 ✅ Ideal para formulários, cadastros, agendamentos, eventos e qualquer situação em que o usuário precise escolher uma data ou horário.
+
+# ScrollView Horizontal no React Native
+
+## O que é?
+
+O `ScrollView` é um componente do React Native utilizado para exibir conteúdo rolável (scroll). Ele pode rolar na vertical ou na horizontal.
+
+Importação:
+
+```javascript
+import { ScrollView } from "react-native";
+```
+
+---
+
+# Exemplo
+
+```jsx
+<ScrollView
+  horizontal
+  showsHorizontalScrollIndicator={false}
+  style={styles.servicesScroll}
+  contentContainerStyle={styles.servicesScrollContent}
+>
+  {/* Conteúdo */}
+</ScrollView>
+```
+
+---
+
+# Explicação de cada propriedade
+
+## `horizontal`
+
+```jsx
+horizontal
+```
+
+Define que o `ScrollView` deve rolar na horizontal.
+
+Sem essa propriedade, a rolagem será vertical por padrão.
+
+### Vertical (padrão)
+
+```
+Item
+Item
+Item
+Item
+```
+
+↓
+
+### Horizontal
+
+```
+Item   Item   Item   Item
+```
+
+← →
+
+---
+
+## `showsHorizontalScrollIndicator={false}`
+
+```jsx
+showsHorizontalScrollIndicator={false}
+```
+
+Controla a barra de rolagem horizontal.
+
+### `true`
+
+Mostra a barra de rolagem.
+
+```
+──────────────────────────
+██████████████
+```
+
+### `false`
+
+Esconde a barra de rolagem, deixando a interface mais limpa.
+
+É muito utilizada em listas de cartões, produtos, médicos, categorias e serviços.
+
+---
+
+## `style={styles.servicesScroll}`
+
+```jsx
+style={styles.servicesScroll}
+```
+
+Aplica estilos ao próprio componente `ScrollView`.
+
+Exemplo:
+
+```javascript
+servicesScroll: {
+  paddingHorizontal: 24,
+}
+```
+
+Pode ser usado para definir:
+
+* margem (`margin`)
+* preenchimento (`padding`)
+* largura (`width`)
+* altura (`height`)
+* cor de fundo (`backgroundColor`)
+* entre outros estilos do contêiner.
+
+---
+
+## `contentContainerStyle={styles.servicesScrollContent}`
+
+```jsx
+contentContainerStyle={styles.servicesScrollContent}
+```
+
+Aplica estilos ao conteúdo interno do `ScrollView`, e não ao componente externo.
+
+Exemplo:
+
+```javascript
+servicesScrollContent: {
+  gap: 16,
+  paddingRight: 24,
+}
+```
+
+### `gap`
+
+Cria espaço entre os itens.
+
+```
+[Card]   16px   [Card]   16px   [Card]
+```
+
+### `paddingRight`
+
+Adiciona espaço no final da lista para que o último item não fique colado na borda da tela.
+
+---
+
+# Diferença entre `style` e `contentContainerStyle`
+
+## `style`
+
+Estiliza o contêiner do `ScrollView`.
+
+```
+┌──────────────────────────────┐
+│        ScrollView            │
+│                              │
+│  Conteúdo                    │
+└──────────────────────────────┘
+```
+
+---
+
+## `contentContainerStyle`
+
+Estiliza apenas os elementos que ficam dentro do `ScrollView`.
+
+```
+┌──────────────────────────────┐
+│ ScrollView                   │
+│ ┌──────────────────────────┐ │
+│ │ Item  Item  Item  Item   │ │
+│ └──────────────────────────┘ │
+└──────────────────────────────┘
+```
+
+---
+
+# Quando usar um ScrollView horizontal?
+
+Use quando deseja criar listas que o usuário percorre deslizando para os lados, como:
+
+* Lista de médicos.
+* Lista de serviços.
+* Categorias.
+* Produtos.
+* Restaurantes.
+* Notícias.
+* Imagens.
+* Cartões de crédito.
+* Filmes e séries.
+
+---
+
+# Resumo
+
+| Propriedade                              | Função                                      |
+| ---------------------------------------- | ------------------------------------------- |
+| `horizontal`                             | Ativa a rolagem horizontal.                 |
+| `showsHorizontalScrollIndicator={false}` | Oculta a barra de rolagem horizontal.       |
+| `style`                                  | Estiliza o contêiner do `ScrollView`.       |
+| `contentContainerStyle`                  | Estiliza os itens internos do `ScrollView`. |
+
+---
+
+# Estrutura completa
+
+```jsx
+<ScrollView
+  horizontal
+  showsHorizontalScrollIndicator={false}
+  style={styles.servicesScroll}
+  contentContainerStyle={styles.servicesScrollContent}
+>
+  {/* Seus componentes aqui */}
+</ScrollView>
+```
+
